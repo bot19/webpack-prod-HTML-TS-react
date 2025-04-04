@@ -10,6 +10,8 @@ Use npm, setup webpack for production env. First for a simple HTML setup, then R
 ## 🖥️ Tech
 
 1. webpack `v5` + webpack-cli `v6`
+2. @babel/core & /preset-env `v7`, babel-loader `v10`, core-js `v3.41`
+3. ...
 
 ## 🚀 How to run
 
