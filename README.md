@@ -1,26 +1,21 @@
-# Repo template
+# Webpack production with HTML & React/TS
 
-Repo description.
+Use npm, setup webpack for production env. First for a simple HTML setup, then React with TS & code quality tooling.
 
 ## 🏁 Features/objectives
 
-1. Point one
-2. Point two
-3. Point three
+1. transform basic HTML/CSS/JS setup to prod env with webpack
+2. setup react/TS prod env with code quality tooling
 
 ## 🖥️ Tech
 
-1. Gatsby.js `v5.5` (react, TS, GraphQL)
-2. Tailwind CSS `v3.3` (fast styling with utility-first CSS framework)
-3. highlight.js `v11.9` (code content syntax highlighting)
+1. webpack `v5` + webpack-cli `v6`
 
 ## 🚀 How to run
 
-1. Fork &amp; clone this repo
-2. Make sure you have Node `v18`, in terminal go to DIR &amp; run `yarn`
-3. On successful installation, run `yarn develop`
+1. using node `v22`
+2. ...
 
 ## 📝 Notes
 
-- Any issues, questions or suggestions, let me know via github
-- Plans for future development, but could be a while...
+- ...
