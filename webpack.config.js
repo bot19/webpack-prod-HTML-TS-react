@@ -1,12 +1,27 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/scripts.js", // entry file of your app
   output: {
-    filename: "bundle.js", // name of the output file
+    filename: "[name].[contenthash].js", // name of the output file
     path: path.resolve(__dirname, "build"), // output folder (dist)
   },
   mode: "production", // development mode for easier debugging
+  optimization: {
+    runtimeChunk: "single",
+    moduleIds: "deterministic",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
   // loaders
   module: {
     rules: [
@@ -32,6 +47,25 @@ module.exports = {
           },
         },
       },
+      // CSS handling rule
+      {
+        test: /\.css$/,
+        use: [
+          // extract CSS into a separate file
+          MiniCssExtractPlugin.loader,
+          "css-loader", // Resolves CSS imports and URLs
+        ],
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html", // template file
+      filename: "index.html", // output file
+      minify: false, // do not minify for easier debugging
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles.[contenthash].css", // Output CSS with contenthash
+    }),
+  ],
 };
