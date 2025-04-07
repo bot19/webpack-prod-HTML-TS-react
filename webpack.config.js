@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   entry: "./src/scripts.js", // entry file of your app
@@ -19,7 +20,6 @@ module.exports = {
     },
     // Hot Module Replacement (HMR) = inject updated JS without page refresh
     hot: process.env.NODE_ENV !== "production", // enable HMR only in development
-    // compress: true, // Enable gzip compression
   },
   optimization: {
     runtimeChunk: "single",
@@ -33,7 +33,7 @@ module.exports = {
         },
       },
     },
-    // minimize: true, // Enable minimization
+    usedExports: true, // Enable tree shaking
   },
   // loaders
   module: {
@@ -82,5 +82,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "styles.[contenthash].css", // Output CSS with contenthash
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };
