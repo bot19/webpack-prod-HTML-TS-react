@@ -49,7 +49,7 @@ module.exports = {
                 "@babel/preset-env",
                 {
                   // Specify target environments; excessive to ensure polyfills
-                  targets: "> 0.25%, not dead, IE 11",
+                  targets: "> 0.25%, not dead",
                   // auto add polyfills for features used in code
                   useBuiltIns: "usage",
                   // Specify core-js ver. (inc. minor) for polyfills
