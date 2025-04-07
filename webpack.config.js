@@ -19,7 +19,7 @@ module.exports = {
     },
     // Hot Module Replacement (HMR) = inject updated JS without page refresh
     hot: process.env.NODE_ENV !== "production", // enable HMR only in development
-    compress: true, // Enable gzip compression
+    // compress: true, // Enable gzip compression
   },
   optimization: {
     runtimeChunk: "single",
@@ -33,7 +33,7 @@ module.exports = {
         },
       },
     },
-    minimize: true, // Enable minimization
+    // minimize: true, // Enable minimization
   },
   // loaders
   module: {
