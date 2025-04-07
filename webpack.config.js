@@ -19,6 +19,7 @@ module.exports = {
     },
     // Hot Module Replacement (HMR) = inject updated JS without page refresh
     hot: process.env.NODE_ENV !== "production", // enable HMR only in development
+    compress: true, // Enable gzip compression
   },
   optimization: {
     runtimeChunk: "single",
@@ -32,6 +33,7 @@ module.exports = {
         },
       },
     },
+    minimize: true, // Enable minimization
   },
   // loaders
   module: {
@@ -47,7 +49,7 @@ module.exports = {
                 "@babel/preset-env",
                 {
                   // Specify target environments; excessive to ensure polyfills
-                  targets: "> 0.25%, not dead, ie 11",
+                  targets: "> 0.25%, not dead, IE 11",
                   // auto add polyfills for features used in code
                   useBuiltIns: "usage",
                   // Specify core-js ver. (inc. minor) for polyfills
