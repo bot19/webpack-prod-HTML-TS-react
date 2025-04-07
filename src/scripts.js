@@ -1,7 +1,11 @@
-import { greetPerson } from "./greetPerson";
-import { polyfillTest } from "../polyfillTest";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./app";
 import "./styles.css";
 
-document.getElementById("btn").addEventListener("click", greetPerson);
-
-polyfillTest();
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

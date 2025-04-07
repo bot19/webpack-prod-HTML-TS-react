@@ -9,6 +9,17 @@ module.exports = {
     path: path.resolve(__dirname, "build"), // output folder (dist)
   },
   mode: "production", // development mode for easier debugging
+  resolve: {
+    extensions: [".js", ".jsx"], // Add .jsx to resolve JSX files
+  },
+  devServer: {
+    port: 3001, // usually 3000
+    static: {
+      directory: path.join(__dirname, "public"), // serve static files from public folder
+    },
+    // Hot Module Replacement (HMR) = inject updated JS without page refresh
+    hot: process.env.NODE_ENV !== "production", // enable HMR only in development
+  },
   optimization: {
     runtimeChunk: "single",
     moduleIds: "deterministic",
@@ -26,7 +37,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(?:js|mjs|cjs)$/,
+        test: /\.(?:js|mjs|cj|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -43,6 +54,8 @@ module.exports = {
                   corejs: 3.41,
                 },
               ],
+              // This preset handles JSX transformation for React
+              "@babel/preset-react",
             ],
           },
         },
