@@ -4,14 +4,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
-  entry: "./src/scripts.js", // entry file of your app
+  entry: "./src/scripts.ts", // entry file of your app
   output: {
     filename: "[name].[contenthash].js", // name of the output file
     path: path.resolve(__dirname, "build"), // output folder (dist)
   },
   mode: "production", // development mode for easier debugging
   resolve: {
-    extensions: [".js", ".jsx"], // Add .jsx to resolve JSX files
+    extensions: [".js", ".jsx", ".ts", ".tsx"], // Add .jsx to resolve JSX files
   },
   devServer: {
     port: 3001, // usually 3000
@@ -61,6 +61,12 @@ module.exports = {
             ],
           },
         },
+      },
+      // handle TS
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
       // CSS handling rule
       {
