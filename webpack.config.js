@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   entry: "./src/scripts.ts", // entry file of your app
@@ -89,5 +90,9 @@ module.exports = {
       filename: "styles.[contenthash].css", // Output CSS with contenthash
     }),
     new BundleAnalyzerPlugin(),
+    new ESLintPlugin({
+      extensions: ["js", "jsx", "ts", "tsx"], // Specify the file extensions to lint
+      exclude: ["node_modules"], // Exclude node_modules from linting
+    }),
   ],
 };
