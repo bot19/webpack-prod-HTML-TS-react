@@ -1,0 +1,4 @@
+# Ignore artifacts:
+.vscode
+build
+node_modules
