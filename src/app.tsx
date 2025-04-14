@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { polyfillTest } from "../polyfillTest";
+import { polyfillTest } from "./polyfillTest";
 import { greetPerson } from "./greetPerson";
 
 export const App = () => {
